@@ -172,26 +172,31 @@
 
   const CRINGE_OMETER = [
     {
+      index: 0,
       message: "Meu deus como você é cringe!!!",
       min: 85.00,
       max: 100.00
     },
     {
+      index: 1,
       message: "Você está sendo dominado pelo espírito cringe!! Você é cringe...",
       min: 65.00,
       max: 84.99
     },
     {
+      index: 2,
       message: "Sua cringisse está aparecendo...",
       min: 40.00,
       max: 64.99
     },
     {
+      index: 3,
       message: "Pode ser que você seja based, mas tome cuidado com o seu cringe...",
       min: 19.00,
       max: 39.99
     },
     {
+      index: 4,
       message: "Definitivamente você não é cringe, mas será que alguém que é based realmente abriria um questionário para saber se é cringe?",
       min: 0.00,
       max: 18.99
@@ -217,7 +222,13 @@
       document.querySelector("#points").innerHTML = Array.from(document.querySelectorAll("input[type='checkbox']:checked")).length + " cringepoints"
       console.log(CRINGE_PERCENT().toFixed(2) + '%')
       document.querySelector("#message").innerHTML =  FIND_MESSAGE(CRINGE_PERCENT()).message
-      document.querySelector("#twitterlink").innerHTML = `<a href="https://twitter.com/intent/tweet?text=encodeURIComponent(FIND_MESSAGE(CRINGE_PERCENT()).message.substring(0, 200))" class="twitter-hashtag-button" data-show-count="false"></a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`
+      Array.from(document.querySelectorAll(`.tweet-wrapper`)).forEach(el => {
+        if (el.dataset.index === FIND_MESSAGE(CRINGE_PERCENT()).index.toString()) {
+          el.classList.remove('hide')
+        } else {
+          el.classList.add('hide')
+        }
+      })
     })
   })
 })()
