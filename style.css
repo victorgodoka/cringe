@@ -1,0 +1,33 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.question__wrapper {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.question__line {
+  width: 100%;
+}
+
+.question__line label span {
+  text-transform: capitalize;
+  font-size: 1.355rem !important;
+}
+
+.nav-wrapper {
+  padding: 0 20px;
+}
+
+#points {
+  font-family: 'Staatliches', sans-serif;
+  font-size: 1.52rem;
+}
